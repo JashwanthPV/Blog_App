@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; }
+        .post { margin-bottom: 20px; }
+        .post h2 { color: #007bff; }
+        a { text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Simple Blog 📝</h1>
+    <a href="/create">Create a New Post</a>
+    <hr>
+    {% for post in posts %}
+        <div class="post">
+            <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
+            <p>{{ post.content[:100] }}...</p>
+        </div>
+    {% else %}
+        <p>No posts yet. Be the first to <a href="/create">write one</a>!</p>
+    {% endfor %}
+</body>
+</html>
